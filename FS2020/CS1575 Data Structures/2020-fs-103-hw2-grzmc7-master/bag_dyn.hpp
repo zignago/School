@@ -1,7 +1,9 @@
 /* Templated implementations of dynamically allocated bag
  * Note the lack of including the h file!
  * The h file includes the hpp at the bottom!
+ 
  * TODO1: Implement the occurences function.
+ 
  * TODO2: Find and fix the memory leak in this file (there is at least one such
     occurrence)
  */
@@ -30,6 +32,9 @@ DynamicBag<T>::DynamicBag(const DynamicBag &other_bag)
     //copy Ts.
     for(int i = 0; i < used; i++)
         data[i] = other_bag.data[i];
+
+    //free old memory
+    delete [] data;
 }
 
 // This is a deep copy
@@ -47,6 +52,9 @@ void DynamicBag<T>::operator=(const DynamicBag &other_bag)
         data[i] = other_bag.data[i];
 
     used = other_bag.used;
+
+    //free old memory
+    delete [] data;
 }
 
 
@@ -113,7 +121,13 @@ bool DynamicBag<T>::remove(const T &target)
 template <typename T>
 int DynamicBag<T>::occurrences(const T &target) const
 {
-   // Implement this function here
+    int j = 0;
+
+    for(int i = 0; i < used; i++)
+        if (data[i] == target)
+            j += 1;
+
+    return j;
 }
 
 
@@ -124,6 +138,7 @@ void DynamicBag<T>::print_bag() const
     for(int i = 0; i < used; i++)
         std::cout << data[i] << std::endl;
 }
+
 
 template <typename T>
 DynamicBag<T>::~DynamicBag()

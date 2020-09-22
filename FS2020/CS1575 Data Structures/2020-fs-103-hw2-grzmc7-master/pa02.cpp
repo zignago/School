@@ -1,7 +1,8 @@
 /* This is a simple main, which is here for you to mess with and to verify your
-    code (not as a graded component of the assignment)
+   code (not as a graded component of the assignment)
+
  * This should serve as a starting point for your unit testing.
- *
+ 
  * Assignment:
  * The bag is one of the simplest data structures.
  * Read: https://en.wikipedia.org/wiki/Set_(abstract_data_type)#Multiset
@@ -10,7 +11,7 @@
  *  - implement the custom exception in the my_exception.cpp file
 
  * Task 2
- *  - implement an abstract tempated class in bag.h
+ *  - implement an abstract templated class in bag.h
 
  * Task 3
  *  - read and understand the simple bag class
@@ -19,7 +20,9 @@
  * Task 4
  *  - read and understand the dynamic bag class
  *  - implement the occurrences function in the hpp file
+ * 
  *  - fix the memory leak in bag_dyn.hpp
+ *  - test everything a bunch
  */
 
 #include "bag_simple.h"
@@ -29,10 +32,14 @@
 int main()
 {
     SimpleBag<int> my_bag;
-    my_bag.insert(4);
+
+    for(int x = 0; x < 9; x++)
+        my_bag.insert(4);
+
+    std::cout << my_bag.size() << " this is used \n\n";
 
     DynamicBag<int> my_dynamic_bag;
-    for(int x = 0; x < 35; x++)
+    for(int x = 0; x < 34; x++)
         my_dynamic_bag.insert(4);
 
     DynamicBag<int> copy_of_bag;
@@ -44,15 +51,16 @@ int main()
     Bag<int> *pBag;
     pBag = &my_dynamic_bag;
     pBag->insert(5);
+    pBag->remove(5);
 
     my_dynamic_bag.print_bag();
 
     // Do extensive testing of your code additions here:
     // you should test using a polymorphic pointer to the parent class when
-    //  calling the functions (e.g. insert, remove, size)
+    // calling the functions (e.g. insert, remove, size)
 
     // This should crash the program:
-    throw MyException();
+    //throw MyException();
 
     return 0;
 }

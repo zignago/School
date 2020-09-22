@@ -14,7 +14,7 @@
 
 template <typename T>
 class DynamicBag: public Bag<T>
-{
+{ 
     private:
         //our dynamic array.
         T *data = nullptr;

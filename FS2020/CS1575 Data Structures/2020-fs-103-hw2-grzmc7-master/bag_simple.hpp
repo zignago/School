@@ -6,13 +6,19 @@
 
 // TODO1: Define your name function here:
 
+void get_identity(std::string &my_id)
+{
+    my_id = "grzmc7";
+}
 
 // TODO2: Fix this function to throw a MyException when the bag is FULL
 template <typename T>
 bool SimpleBag<T>::insert(const T &myItem)
 {
+
+    
     if(size() >= CAPACITY)
-        return false;
+        throw MyException();
 
     data[used] = myItem;
     used++;
