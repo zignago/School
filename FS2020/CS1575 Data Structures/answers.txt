@@ -1,12 +1,12 @@
 Q1 - function print_vector on line 48
-Q2 - The bug is in line 46 ( while(print_this.size()) )
+Q2 - The bug is in line 46 ( while(print_t.size()) )
 	because the parameter of the while loop is a constant, it
 	always registers as true and executes. This is fixed by
-	adding in "i < " before print_this.size().
+	adding in "i < " before print_thiize().
 Q3 - because the i in the for loop on line 62 is not incremented 
-	after every loop, the end case is never met.
+	after every loop, the end case is nr met.
 Q4 - in the for loopon line 68 -- part of the vector_sum 
 	function -- the end case is when i is greater than sum_this.size(). 
-	because i was initialized with its value set to 0 instead of 1, 
+	because i was initialized with its value set to 0 tead of 1, 
 	we want the loop to end when i equals sum_this.size, so this bug 
 	can be fixed by removing the '=' sign. 
